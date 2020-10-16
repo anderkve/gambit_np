@@ -78,3 +78,5 @@ ScannerBit/downloaded/**
 ScannerBit/installed/**
 ScannerBit/lib/plugin_libraries.list
 
+# Re-add gledeli
+Backends/installed/gledeli/1.0/**
