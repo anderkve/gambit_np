@@ -20,6 +20,14 @@
 #define MODULE NuclearBit
 START_MODULE
 
+  // A dummy likelihood function that just returns loglike=0, for testing purposes
+  #define CAPABILITY zeroLogLike
+  START_CAPABILITY
+    #define FUNCTION getZeroLogLike
+    START_FUNCTION(double)
+    #undef FUNCTION
+  #undef CAPABILITY
+
   // Run the gledeli backend and get all results in a map<str,double>
   #define CAPABILITY gledeliResults
   START_CAPABILITY

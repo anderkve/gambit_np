@@ -123,6 +123,12 @@ Scanner:
 
 ObsLikes:
 
+  # # A dummy likelihood returning loglike=0, for prior-only scans
+  # - purpose:      LogLike
+  #   capability:   zeroLogLike
+  #   #module:       NuclearBit # Not really needed, GAMBIT can figure it out
+  #   #function:     getZeroLogLike  # Not really needed, GAMBIT can figure it out
+
   # We must include the Oslo Method loglike in total loglike for the scan
   - purpose:      LogLike
     capability:   gledeliLogLike

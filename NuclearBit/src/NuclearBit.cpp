@@ -26,6 +26,15 @@ namespace Gambit
     /// \name Module functions
     /// @{
 
+    // A dummy likelihood function that just returns 
+    // loglike=0, for testing purposes
+    void getZeroLogLike(double &result)
+    {
+      using namespace Pipes::getZeroLogLike;
+      result = 0.0;
+    }
+
+
     // Run the gledeli backend and retrieve all the results
     void getGledeliResults(std::map<std::string,double> &result)
     {
