@@ -25,7 +25,8 @@ START_MODULE
   START_CAPABILITY
     #define FUNCTION getGledeliResults
     START_FUNCTION(map_str_dbl)
-    ALLOW_MODELS(GSFModel20, NLDModelCT_and_discretes, NLDModelBSFG_and_discretes)
+    ALLOW_MODELS(GSFModel20, GSF_GLOModel20, GSF_EGLOModel20,
+                 NLDModelCT_and_discretes, NLDModelBSFG_and_discretes)
     BACKEND_REQ(gledeliBE_set_model_pars, (), void, (pybind11::dict&))
     BACKEND_REQ(gledeliBE_set_model_names, (), void, (pybind11::list&))
     BACKEND_REQ(gledeliBE_run, (), pybind11::dict, (pybind11::dict&))

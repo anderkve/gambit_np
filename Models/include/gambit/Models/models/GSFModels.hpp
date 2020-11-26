@@ -21,7 +21,17 @@
 
 #define MODEL GSFModel20
   START_MODEL
-  DEFINEPARS(gsf_p1,gsf_p2,gsf_p3,gsf_p4,gsf_p5,gsf_p6,gsf_p7,gsf_p8,gsf_p9,gsf_p10,gsf_p11,gsf_p12,gsf_p13,gsf_p14,gsf_p15,gsf_p16,gsf_p17,gsf_p18,gsf_p19,gsf_p20)
+  DEFINEPARS(gsf_p1,gsf_p2,gsf_p3,gsf_p4,gsf_p5,gsf_p6,gsf_p7,gsf_p8,gsf_p9,gsf_p10,gsf_p11,gsf_p12,gsf_p13,gsf_p14,gsf_p15,gsf_p16,gsf_p17,gsf_p18,gsf_p19,gsf_T)
+#undef MODEL
+
+#define MODEL GSF_GLOModel20
+  START_MODEL
+  DEFINEPARS(gsf_p1,gsf_p2,gsf_p3,gsf_p4,gsf_p5,gsf_p6,gsf_p7,gsf_p8,gsf_p9,gsf_p10,gsf_p11,gsf_p12,gsf_p13,gsf_p14,gsf_p15,gsf_p16,gsf_p17,gsf_p18,gsf_p19,gsf_T)
+#undef MODEL
+
+#define MODEL GSF_EGLOModel20
+  START_MODEL
+  DEFINEPARS(gsf_p1,gsf_p2,gsf_p3,gsf_p4,gsf_p5,gsf_p6,gsf_p7,gsf_p8,gsf_p9,gsf_p10,gsf_p11,gsf_p12,gsf_p13,gsf_p14,gsf_p15,gsf_p16,gsf_p17,gsf_p18,gsf_p19,gsf_T,gsf_epsilon_0,gsf_k)
 #undef MODEL
 
 #endif /* defined(__gsfmodels_hpp__) */
