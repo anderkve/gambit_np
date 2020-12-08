@@ -31,8 +31,7 @@ namespace Gambit
     {
       using namespace Pipes::getGledeliResults;
 
-      // The first time this function is run we let
-      // gledeli know which GAMBIT models are in use.
+      // Initialization of gledeli
       static bool first = true;
       if (first)
       {
@@ -40,6 +39,9 @@ namespace Gambit
         pybind11::list active_models_list = pybind11::cast(Models::ModelDB().get_activemodels());
         // Pass the list to the gledeli backend.
         BEreq::gledeliBE_set_model_names(active_models_list);
+
+        // Pass lnlike_cutoff
+        BEreq::gledeliBE_set_lnlike_cutoff(lnlike_cutoff = ...) // TODO: Get lnlike_cutoff and register gledeliBE_set_lnlike_cutoff
         first = false;
       }
 
