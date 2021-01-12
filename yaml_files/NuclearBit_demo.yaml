@@ -71,7 +71,7 @@ Parameters:
       prior_type: log
       range: [1, 4]
 
-  GSF_ConstantM1:
+  GSF_constantM1:
     gsf_constantM1:
       prior_type: flat
       range: [1e-7, 5e-7]
