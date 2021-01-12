@@ -7,7 +7,7 @@
 
 Parameters:
 
-  GSF_GLOModel20:
+  GSF_EGLO_CT_Model20:
     gsf_p1:
       prior_type: flat
       range: [11, 13]
@@ -64,6 +64,17 @@ Parameters:
     gsf_T:
       prior_type: log
       range: [0.4, 0.8]
+    gsf_epsilon_0:
+      prior_type: log
+      range: [0.4, 0.8]
+    gsf_k:
+      prior_type: log
+      range: [1, 4]
+
+  GSF_ConstantM1:
+    gsf_constantM1:
+      prior_type: flat
+      range: [1e-7, 5e-7]
 
   NLDModelBSFG_and_discretes:
     nld_NLDa:
