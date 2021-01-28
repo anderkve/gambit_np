@@ -90,9 +90,12 @@ namespace Gambit
       // Get the result (map<str,double>) from the gledeli backend
       pybind11::dict gledeli_results = BEreq::gledeliBE_get_results();
 
-      // std::map<std::string,double> gledeli_results& = BEreq::gledeliBE_get_results();
-      // gledeli_results = BEreq::gledeliBE_get_results();
-      // result = gledeli_results;
+      // Did gledeli accept this point?
+      if( !gledeli_results.contains("valid_point") ) { NuclearBit_error().raise(LOCAL_INFO, "The expected 'valid_point' key is not found in the pybind11:dict 'gledeli_results'"); }
+      if( !gledeli_results["valid_point"].cast<bool>() )
+      {
+          invalid_point().raise("Parameter point invalidated by gledeli.");
+      }
 
       // Fill the result map (map<str,double>) of this function
       for (auto& kv : gledeli_results)
