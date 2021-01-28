@@ -40,8 +40,10 @@ namespace Gambit
         // Pass the list to the gledeli backend.
         BEreq::gledeliBE_set_model_names(active_models_list);
 
-        // Pass lnlike_cutoff
-        BEreq::gledeliBE_set_lnlike_cutoff(lnlike_cutoff = ...) // TODO: Get lnlike_cutoff and register gledeliBE_set_lnlike_cutoff
+        // Read lnlike_cutoff from the YAML file and pass it to the gledeli backend
+        double lnlike_cutoff = runOptions->getValue<double>("lnlike_cutoff");
+        cout << "DEBUG: lnlike_cutoff = " << lnlike_cutoff << endl;
+        BEreq::gledeliBE_set_lnlike_cutoff(lnlike_cutoff);
         first = false;
       }
 

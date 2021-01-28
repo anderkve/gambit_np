@@ -29,6 +29,7 @@ START_MODULE
                  NLDModelCT_and_discretes, NLDModelBSFG_and_discretes)
     BACKEND_REQ(gledeliBE_set_model_pars, (), void, (pybind11::dict&))
     BACKEND_REQ(gledeliBE_set_model_names, (), void, (pybind11::list&))
+    BACKEND_REQ(gledeliBE_set_lnlike_cutoff, (), void, (double&))
     BACKEND_REQ(gledeliBE_run, (), pybind11::dict, (pybind11::dict&))
     BACKEND_REQ(gledeliBE_get_results, (), pybind11::dict, ())
     #undef FUNCTION

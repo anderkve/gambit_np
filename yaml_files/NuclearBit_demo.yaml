@@ -138,7 +138,11 @@ ObsLikes:
 
 Rules:
 
-  # None required, since no module dependencies to be resolved.
+  # Set options for the getGledeliResults function in NuclearBit
+  - capability: gledeliResults
+    function: getGledeliResults
+    options:
+      lnlike_cutoff: -5e5
 
 
 Logger:
@@ -161,6 +165,6 @@ KeyValues:
 
   print_timing_data: false
 
-  likelihood:
-    model_invalid_for_lnlike_below: -5e5
+  # likelihood:
+  #   model_invalid_for_lnlike_below: -5e5
 
