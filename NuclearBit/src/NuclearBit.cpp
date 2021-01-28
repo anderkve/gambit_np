@@ -42,8 +42,8 @@ namespace Gambit
 
         // Read lnlike_cutoff from the YAML file and pass it to the gledeli backend
         double lnlike_cutoff = runOptions->getValue<double>("lnlike_cutoff");
-        cout << "DEBUG: lnlike_cutoff = " << lnlike_cutoff << endl;
         BEreq::gledeliBE_set_lnlike_cutoff(lnlike_cutoff);
+
         first = false;
       }
 
