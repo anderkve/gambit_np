@@ -21,6 +21,8 @@
 #include <cmath>
 #include <boost/math/special_functions/erf.hpp>
 
+#include "gambit/Elements/gambit_module_headers.hpp"
+
 namespace Gambit
 {
    namespace Priors
@@ -102,9 +104,31 @@ namespace Gambit
 
          double r = unitpars[0]; // input unit cube parameter
 
-         // Transformation:
-         double x = M_SQRT2*boost::math::erf_inv(2*(r*(b-a) + a) - 1); // output (result)
-         x = x * sigma + mu;
+          // This fix solves the overflow error
+          if (1.0 - r < std::numeric_limits<double>::epsilon())
+          {
+            double r_old = r;
+            r = 1.0 - 2 * std::numeric_limits<double>::epsilon();
+            logger() << "Overflow fix! Adjusted r value:" << std::setprecision(20) << "\nr_old = " << r_old
+            << "\nr (adjusted) = " << r << endl;
+          }
+
+          // Transformation:
+          double x;
+          if (r==0)
+          {
+            x = lower_cut;
+          }
+          else if (r==1)
+          {
+            x = upper_cut;
+          }
+          else
+          {
+            x = M_SQRT2*boost::math::erf_inv(2*(r*(b-a) + a) - 1);
+            x = x * sigma + mu;
+          }
+
 
          output[myparameter] = x;
       }
